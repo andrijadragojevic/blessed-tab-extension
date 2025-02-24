@@ -2,7 +2,7 @@ const IMAGE_STORAGE_KEY = "background_images";
 const IMAGE_INDEX_KEY = "background_image_index";
 const TOTAL_IMAGES = 50;
 const SWITCH_INTERVAL = 5000; // 15 seconds
-const UNSPLASH_API_URL = `https://api.unsplash.com/photos/random?query=Christianity,bible,church,sky,god&count=${TOTAL_IMAGES}&client_id=pVOfyft4uIqDTj1G6DS0_-Q-NpoYqwIUveQtDRCgGTM`;
+const UNSPLASH_API_URL = `https://api.unsplash.com/photos/random?query=Christianity,bible,church,god,jesus,christ,saint&count=${TOTAL_IMAGES}&client_id=pVOfyft4uIqDTj1G6DS0_-Q-NpoYqwIUveQtDRCgGTM`;
 
 const container = document.getElementById("background-container");
 
@@ -92,10 +92,11 @@ function fetchNewImages() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("https://bible-api.com/john+3:16")
+  fetch("https://bible-api.com/data/web/random")
     .then((response) => response.json())
     .then((data) => {
-      document.getElementById("bible-quote").innerText = data.text;
+      document.getElementById("verse").innerText = data.random_verse.text;
+      document.getElementById("reference").innerText = `${data.random_verse.book} ${data.random_verse.chapter}:${data.random_verse.verse}`
     })
     .catch(() => {
       document.getElementById("bible-quote").innerText =
