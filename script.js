@@ -102,16 +102,4 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("bible-quote").innerText =
         "Could not load quote.";
     });
-
-  document.getElementById("donate-button").addEventListener("click", () => {
-    let amount = prompt("Enter donation amount (USD):");
-    if (amount && !isNaN(amount) && amount > 0) {
-      window.open(
-        `https://buy.stripe.com/test_donation_link?amount=${amount * 100}`,
-        "_blank"
-      );
-    } else {
-      alert("Please enter a valid amount.");
-    }
-  });
 });
